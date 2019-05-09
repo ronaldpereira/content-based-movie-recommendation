@@ -5,6 +5,7 @@ Content-based Movie Recommendation algorithm.
 ## Tools
 
 Movie Recommendation task by using:
+
 TBD
   
 ## Evaluation Metric
@@ -13,4 +14,4 @@ TBD
 
 ## Leaderboard
 
-The leaderboard can be seen in this [Kaggle Competition](https://www.kaggle.com/c/recsys-20191-cfmr/leaderboard)
+The leaderboard can be seen in this [Kaggle Competition](https://www.kaggle.com/c/recsys-20191-cbmr/leaderboard)
