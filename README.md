@@ -4,8 +4,6 @@ Content-based Movie Recommendation algorithm.
 
 ## Tools
 
-## Tools
-
 Movie Recommendation task by using:
 
 - Content-based Similarities
