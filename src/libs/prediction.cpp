@@ -8,7 +8,7 @@
 #include "prediction.hpp"
 #include "itemuser.hpp"
 
-void Prediction::GetPredictions(char *targetsPath, ItemUser *itemuser, int kNearestNeighbors)
+void Prediction::GetPredictions(char *targetsPath, ItemUser *itemuser)
 {
     int user = 0, item = 0;
     double ratingPrediction = 0;
@@ -37,7 +37,7 @@ void Prediction::GetPredictions(char *targetsPath, ItemUser *itemuser, int kNear
         token = strtok(NULL, ",ui");
         item = atoi(token);
 
-        ratingPrediction = makePrediction(user, item, itemuser, &cossimilarity, kNearestNeighbors);
+        ratingPrediction = makePrediction(user, item, itemuser, &cossimilarity);
 
         std::cout << "u" << std::setfill('0') << std::setw(7) << user;
         std::cout << ":i" << std::setfill('0') << std::setw(7) << item;
@@ -48,12 +48,12 @@ void Prediction::GetPredictions(char *targetsPath, ItemUser *itemuser, int kNear
     targetsFile.close();
 }
 
-double Prediction::makePrediction(int targetUserID, int targetItemID, ItemUser *itemuser, CosineSimilarity *cossimilarity, int kNearestNeighbors)
+double Prediction::makePrediction(int targetUserID, int targetItemID, ItemUser *itemuser, CosineSimilarity *cossimilarity)
 {
     double predRating = 0;
     double similaritiesSum = 0;
 
-    std::unordered_map<int, double> similarity = cossimilarity->calculateSimilarity(itemuser, targetItemID, kNearestNeighbors);
+    std::unordered_map<int, double> similarity = cossimilarity->calculateSimilarity(itemuser, targetItemID);
 
     std::vector<int> &itemIDs = itemuser->UserConsumedItems[targetUserID];
 

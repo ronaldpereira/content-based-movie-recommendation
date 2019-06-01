@@ -1,31 +1,10 @@
-#include <iostream>
-
 #include <cmath>
 #include <algorithm>
-#include <map>
 #include <unordered_map>
 #include "cosinesimilarity.hpp"
 #include "itemuser.hpp"
 
-std::unordered_map<int, double> CosineSimilarity::getKNearestNeighbors(std::unordered_map<int, double> *similarities, int kNearestNeighbors)
-{
-    std::vector<std::pair<int, double>> simVector(kNearestNeighbors);
-    std::unordered_map<int, double> topKSimilarities;
-
-    std::partial_sort_copy(similarities->begin(), similarities->end(),
-                           simVector.begin(), simVector.end(),
-                           [](const std::pair<int, double> &a,
-                              const std::pair<int, double> &b) {
-                               return a.second > b.second;
-                           });
-
-    for (auto &sim : simVector)
-        topKSimilarities[sim.first] = sim.second;
-
-    return topKSimilarities;
-}
-
-std::unordered_map<int, double> CosineSimilarity::calculateSimilarity(ItemUser *itemuser, int targetItemID, int kNearestNeighbors)
+std::unordered_map<int, double> CosineSimilarity::calculateSimilarity(ItemUser *itemuser, int targetItemID)
 {
     std::unordered_map<int, double> similarities;
 
@@ -62,9 +41,6 @@ std::unordered_map<int, double> CosineSimilarity::calculateSimilarity(ItemUser *
             if (normalizer != 0)
                 similarities[itemID] = weightedRatingSum / normalizer;
         }
-        // If KNN selection is active
-        if (kNearestNeighbors > 0)
-            similarities = getKNearestNeighbors(&similarities, kNearestNeighbors);
 
         // Saves the target item computed similarities for possible future use
         computedSimilarities[targetItemID] = similarities;

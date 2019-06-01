@@ -7,18 +7,15 @@ int main(int argc, char **argv)
     // Unused parameter 'argc' warning suppression
     (void)argc;
 
-    // K Nearest Neighbors selection
-    // int kNearestNeighbors = 0;
-
     ContentReader content;
-    // ItemUser itemuser;
-    // Prediction prediction;
+    ItemUser itemuser;
+    Prediction prediction;
 
     content.ReadContent(argv[1]);
 
-    // itemuser.ItemUserRatingsBuilder(argv[2]);
+    itemuser.ItemUserRatingsBuilder(argv[2]);
 
-    // prediction.GetPredictions(argv[3], &itemuser, kNearestNeighbors);
+    prediction.GetPredictions(argv[3], &itemuser);
 
     return 0;
 }
