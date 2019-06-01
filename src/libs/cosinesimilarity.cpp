@@ -42,8 +42,5 @@ std::unordered_map<int, double> CosineSimilarity::calculateSimilarity(UserItem *
         computedSimilarities[targetItemID] = similarities;
     }
 
-    else
-        similarities = computedSimilarities[targetItemID];
-
-    return similarities;
+    return computedSimilarities[targetItemID];
 }

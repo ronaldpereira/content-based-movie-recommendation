@@ -15,7 +15,6 @@ private:
 public:
     // Data
     std::unordered_map<int, std::unordered_map<int, int>> UserItemRatings;
-    std::unordered_map<int, std::vector<int>> UserConsumedItems;
     std::unordered_map<int, double> UserAvgRating;
     double GlobalUsersAvg;
 

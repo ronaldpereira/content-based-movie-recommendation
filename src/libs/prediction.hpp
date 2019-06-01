@@ -14,12 +14,7 @@
 class Prediction
 {
 private:
-    // Data
-    std::unordered_map<int, std::unordered_map<int, double>> itemFeatures;
-    std::unordered_map<int, std::unordered_map<int, double>> userFeatures;
-
-    //Methods
-    double makePrediction(int, int, UserItem *, Content *);
+    double makePrediction(int, int, UserItem *, Content *, Rocchio *);
 
 public:
     void GetPredictions(char *, UserItem *, Content *);

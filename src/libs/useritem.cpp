@@ -25,9 +25,7 @@ void UserItem::UserItemRatingsBuilder(char *ratingsPath)
         token = strtok(NULL, ",ui");
         int rating = atoi(token);
 
-        UserItemRatings[item][user] = rating;
-
-        UserConsumedItems[user].push_back(item);
+        UserItemRatings[user][item] = rating;
     }
 
     calculateUsersAvgRating();

@@ -4,6 +4,7 @@
 #include <unordered_map>
 #include "useritem.hpp"
 #include "content.hpp"
+#include "json.hpp"
 
 class Rocchio
 {
@@ -13,7 +14,7 @@ public:
     std::unordered_map<int, std::unordered_map<int, double>> UserFeature;
 
     // Methods
-    void BuildUserFeature(int, int, UserItem *, Content *);
+    void BuildUserFeature(int, UserItem *, Content *);
 };
 
 #endif
