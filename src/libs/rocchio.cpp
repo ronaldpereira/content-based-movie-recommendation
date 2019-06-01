@@ -11,7 +11,7 @@ void Rocchio::BuildUserFeature(int targetUserID, UserItem *useritem, Content *co
         {
             for (auto &feature : content->FeaturesItem)
             {
-                int featureID = feature.first;
+                std::string featureID = feature.first;
 
                 for (auto &rating : userRatings)
                 {

@@ -11,7 +11,7 @@ class Rocchio
 private:
 public:
     // Data
-    std::unordered_map<int, std::unordered_map<int, double>> UserFeature;
+    std::unordered_map<int, std::unordered_map<std::string, double>> UserFeature;
 
     // Methods
     void BuildUserFeature(int, UserItem *, Content *);

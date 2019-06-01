@@ -50,7 +50,7 @@ double Prediction::makePrediction(int targetUserID, int targetItemID, UserItem *
 
     for (auto &feature : rocchio->UserFeature[targetUserID])
     {
-        int featureID = feature.first;
+        std::string featureID = feature.first;
 
         if (rocchio->UserFeature.find(targetUserID) == rocchio->UserFeature.end())
             continue;
