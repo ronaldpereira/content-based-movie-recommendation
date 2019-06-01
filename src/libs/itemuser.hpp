@@ -1,5 +1,8 @@
 #ifndef ITEMUSER
 #define ITEMUSER
+
+#include <fstream>
+#include <cstring>
 #include <unordered_map>
 #include <vector>
 

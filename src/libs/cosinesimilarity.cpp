@@ -1,8 +1,4 @@
-#include <cmath>
-#include <algorithm>
-#include <unordered_map>
 #include "cosinesimilarity.hpp"
-#include "itemuser.hpp"
 
 std::unordered_map<int, double> CosineSimilarity::calculateSimilarity(ItemUser *itemuser, int targetItemID)
 {

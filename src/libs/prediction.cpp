@@ -1,21 +1,11 @@
-#include <cmath>
-#include <iostream>
-#include <iomanip>
-#include <fstream>
-#include <cstring>
-#include <unordered_map>
-#include "cosinesimilarity.hpp"
 #include "prediction.hpp"
-#include "itemuser.hpp"
 
-void Prediction::GetPredictions(char *targetsPath, ItemUser *itemuser)
+void Prediction::GetPredictions(char *targetsPath, ItemUser *itemuser, Content *content)
 {
     int user = 0, item = 0;
     double ratingPrediction = 0;
     char *token = NULL;
     std::string line;
-
-    CosineSimilarity cossimilarity;
 
     std::ifstream targetsFile;
     targetsFile.open(targetsPath);
@@ -37,7 +27,7 @@ void Prediction::GetPredictions(char *targetsPath, ItemUser *itemuser)
         token = strtok(NULL, ",ui");
         item = atoi(token);
 
-        ratingPrediction = makePrediction(user, item, itemuser, &cossimilarity);
+        ratingPrediction = makePrediction(user, item, itemuser, content);
 
         std::cout << "u" << std::setfill('0') << std::setw(7) << user;
         std::cout << ":i" << std::setfill('0') << std::setw(7) << item;
@@ -48,46 +38,11 @@ void Prediction::GetPredictions(char *targetsPath, ItemUser *itemuser)
     targetsFile.close();
 }
 
-double Prediction::makePrediction(int targetUserID, int targetItemID, ItemUser *itemuser, CosineSimilarity *cossimilarity)
+double Prediction::makePrediction(int targetUserID, int targetItemID, ItemUser *itemuser, Content *content)
 {
     double predRating = 0;
-    double similaritiesSum = 0;
-
-    std::unordered_map<int, double> similarity = cossimilarity->calculateSimilarity(itemuser, targetItemID);
-
-    std::vector<int> &itemIDs = itemuser->UserConsumedItems[targetUserID];
-
-    for (int itemID : itemIDs)
-    {
-        if (similarity.find(itemID) == similarity.end())
-            continue;
-
-        predRating += similarity[itemID] * (itemuser->ItemUserRatings[itemID][targetUserID] - itemuser->ItemAvgRating[itemID]);
-        similaritiesSum += std::abs(similarity[itemID]);
-    }
-
-    if (predRating != 0 && similaritiesSum != 0)
-    {
-        predRating /= similaritiesSum;
-        predRating += itemuser->ItemAvgRating[targetItemID];
-
-        // Exploding ratings corrections
-        if (predRating > 10)
-            predRating = 10;
-
-        else if (predRating < 0)
-            predRating = 0;
-    }
-
-    // If the target item doesn't have any similarity with any other item, pick the item average rating
-    else
-    {
-        predRating = itemuser->ItemAvgRating[targetItemID];
-
-        // If the item is a complete cold-start, uses the global items average
-        if (predRating == 0)
-            predRating = itemuser->GlobalItemsAvg;
-    }
+    
+    Rocchio rocchio;
 
     return predRating;
 }

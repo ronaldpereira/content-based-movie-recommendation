@@ -1,11 +1,8 @@
-#include <fstream>
-#include <cstring>
-#include "json.hpp"
-#include "contentreader.hpp"
+#include "content.hpp"
 
 using json = nlohmann::json;
 
-void ContentReader::ReadContent(std::string contentsPath)
+void Content::ReadContent(std::string contentsPath)
 {
     std::string line;
     std::ifstream contentsFile;

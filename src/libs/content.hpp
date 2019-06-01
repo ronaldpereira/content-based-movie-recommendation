@@ -1,11 +1,14 @@
-#ifndef CONTENTREADER
-#define CONTENTREADER
+#ifndef CONTENT
+#define CONTENT
+
+#include <fstream>
+#include <cstring>
 #include <unordered_map>
 #include "json.hpp"
 
 using json = nlohmann::json;
 
-class ContentReader
+class Content
 {
 private:
 public:

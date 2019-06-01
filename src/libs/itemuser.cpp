@@ -1,5 +1,3 @@
-#include <fstream>
-#include <cstring>
 #include "itemuser.hpp"
 
 void ItemUser::ItemUserRatingsBuilder(char *ratingsPath)

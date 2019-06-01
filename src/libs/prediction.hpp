@@ -1,15 +1,28 @@
 #ifndef PREDICTION
 #define PREDICTION
-#include "cosinesimilarity.hpp"
+
+#include <cmath>
+#include <iostream>
+#include <iomanip>
+#include <fstream>
+#include <cstring>
+#include <unordered_map>
 #include "itemuser.hpp"
+#include "content.hpp"
+#include "rocchio.hpp"
 
 class Prediction
 {
 private:
-    double makePrediction(int, int, ItemUser *, CosineSimilarity *);
+    // Data
+    std::unordered_map<int, std::unordered_map<int, double>> itemFeatures;
+    std::unordered_map<int, std::unordered_map<int, double>> userFeatures;
+
+    //Methods
+    double makePrediction(int, int, ItemUser *, Content *);
 
 public:
-    void GetPredictions(char *, ItemUser *);
+    void GetPredictions(char *, ItemUser *, Content *);
 };
 
 #endif

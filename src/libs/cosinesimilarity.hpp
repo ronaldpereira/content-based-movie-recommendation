@@ -1,5 +1,9 @@
 #ifndef COSINESIM
 #define COSINESIM
+
+#include <cmath>
+#include <algorithm>
+#include <unordered_map>
 #include <unordered_map>
 #include "itemuser.hpp"
 

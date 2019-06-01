@@ -1,4 +1,4 @@
-#include "libs/contentreader.hpp"
+#include "libs/content.hpp"
 #include "libs/itemuser.hpp"
 #include "libs/prediction.hpp"
 
@@ -7,7 +7,7 @@ int main(int argc, char **argv)
     // Unused parameter 'argc' warning suppression
     (void)argc;
 
-    ContentReader content;
+    Content content;
     ItemUser itemuser;
     Prediction prediction;
 
@@ -15,7 +15,7 @@ int main(int argc, char **argv)
 
     itemuser.ItemUserRatingsBuilder(argv[2]);
 
-    prediction.GetPredictions(argv[3], &itemuser);
+    prediction.GetPredictions(argv[3], &itemuser, &content);
 
     return 0;
 }
