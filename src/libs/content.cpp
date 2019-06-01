@@ -39,10 +39,12 @@ void Content::preProcess()
         int itemID = item.first;
 
         std::string year = item.second.value("Year", "");
+        std::string metascore = item.second.value("Metascore", "");
         std::string imdbRating = item.second.value("imdbRating", "");
         std::string imdbVotes = item.second.value("imdbVotes", "");
 
         FeaturesItem["Year"][itemID] = convertStringToInt(year);
+        FeaturesItem["Metascore"][itemID] = convertStringToDouble(metascore);
         FeaturesItem["imdbRating"][itemID] = convertStringToDouble(imdbRating);
         FeaturesItem["imdbVotes"][itemID] = convertStringToInt(imdbVotes);
     }

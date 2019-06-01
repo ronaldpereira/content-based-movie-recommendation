@@ -64,5 +64,27 @@
         "imdbID": "tt0001223",
         "Type": "movie",
         "Response": "True"
+    },
+    {
+        "Title": "Wild Tales",
+        "Year": "2014",
+        "Rated": "R",
+        "Released": "21 Aug 2014",
+        "Runtime": "122 min",
+        "Genre": "Comedy, Drama, Thriller",
+        "Director": "Damián Szifrón",
+        "Writer": "Damián Szifrón",
+        "Actors": "Darío Grandinetti, María Marull, Mónica Villa, Rita Cortese",
+        "Plot": "\"Relatos Salvajes\" is a black comedy film divided in six segments. (1) \"Pasternak\": one model and a music critic in a plane find that they have a common acquaintance called Pasternak. Soon they discover that every passenger and crew on board know Pasternak. Cosmic coincidence? (2) \"The Rats\": a waitress of a diner recognizes her client as the loan shark that caused a tragedy in her family. The cook suggests mixing rat poison in his food, but she refuses. But the cook decides to proceed in her plan. When his son arrives, the waitress tries to fix the situation. (3) \"The Strongest\": Two drivers on a lone highway have an argument with tragic consequences. (4) \"Little Bomb\": The demolition engineer has his car towed by a truck for parking in a wrong place and he has an argument with the employee of the towing company. This event destroys his private and professional life, and he plots revenge against the corrupt towing company and the City Hall. (5) \"The Proposal\": The reckless hit-and-run son of a wealthy family hits and kills a pregnant woman. He wakes up his parents and his father calls the lawyer. They propose to pay the groundkeeper to take the blame. Soon the father discovers that he is victim of extortion of his lawyer and the detective in charge of the investigation. What will be his decision? (6) \"Until Death Do Us Apart\": During the wedding party, the wife discovers that her husband has cheated her with one of the guests and decides to payback.",
+        "Language": "Spanish",
+        "Country": "Argentina, Spain",
+        "Awards": "Nominated for 1 Oscar. Another 39 wins & 44 nominations.",
+        "Poster": "http://ia.media-imdb.com/images/M/MV5BNzAzMjA1ODAxOV5BMl5BanBnXkFtZTgwODg4NTQzNDE@._V1_SX300.jpg",
+        "Metascore": "77",
+        "imdbRating": "8.2",
+        "imdbVotes": "46,553",
+        "imdbID": "tt3011894",
+        "Type": "movie",
+        "Response": "True"
     }
 ]
