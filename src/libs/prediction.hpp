@@ -7,7 +7,7 @@
 #include <fstream>
 #include <cstring>
 #include <unordered_map>
-#include "itemuser.hpp"
+#include "useritem.hpp"
 #include "content.hpp"
 #include "rocchio.hpp"
 
@@ -19,10 +19,10 @@ private:
     std::unordered_map<int, std::unordered_map<int, double>> userFeatures;
 
     //Methods
-    double makePrediction(int, int, ItemUser *, Content *);
+    double makePrediction(int, int, UserItem *, Content *);
 
 public:
-    void GetPredictions(char *, ItemUser *, Content *);
+    void GetPredictions(char *, UserItem *, Content *);
 };
 
 #endif

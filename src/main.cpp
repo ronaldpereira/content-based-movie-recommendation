@@ -1,5 +1,5 @@
 #include "libs/content.hpp"
-#include "libs/itemuser.hpp"
+#include "libs/useritem.hpp"
 #include "libs/prediction.hpp"
 
 int main(int argc, char **argv)
@@ -8,14 +8,14 @@ int main(int argc, char **argv)
     (void)argc;
 
     Content content;
-    ItemUser itemuser;
+    UserItem useritem;
     Prediction prediction;
 
     content.ReadContent(argv[1]);
 
-    itemuser.ItemUserRatingsBuilder(argv[2]);
+    useritem.UserItemRatingsBuilder(argv[2]);
 
-    prediction.GetPredictions(argv[3], &itemuser, &content);
+    prediction.GetPredictions(argv[3], &useritem, &content);
 
     return 0;
 }

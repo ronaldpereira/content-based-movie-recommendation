@@ -1,6 +1,6 @@
 #include "prediction.hpp"
 
-void Prediction::GetPredictions(char *targetsPath, ItemUser *itemuser, Content *content)
+void Prediction::GetPredictions(char *targetsPath, UserItem *useritem, Content *content)
 {
     int user = 0, item = 0;
     double ratingPrediction = 0;
@@ -27,7 +27,7 @@ void Prediction::GetPredictions(char *targetsPath, ItemUser *itemuser, Content *
         token = strtok(NULL, ",ui");
         item = atoi(token);
 
-        ratingPrediction = makePrediction(user, item, itemuser, content);
+        ratingPrediction = makePrediction(user, item, useritem, content);
 
         std::cout << "u" << std::setfill('0') << std::setw(7) << user;
         std::cout << ":i" << std::setfill('0') << std::setw(7) << item;
@@ -38,7 +38,7 @@ void Prediction::GetPredictions(char *targetsPath, ItemUser *itemuser, Content *
     targetsFile.close();
 }
 
-double Prediction::makePrediction(int targetUserID, int targetItemID, ItemUser *itemuser, Content *content)
+double Prediction::makePrediction(int targetUserID, int targetItemID, UserItem *useritem, Content *content)
 {
     double predRating = 0;
     

@@ -1,6 +1,6 @@
-#include "itemuser.hpp"
+#include "useritem.hpp"
 
-void ItemUser::ItemUserRatingsBuilder(char *ratingsPath)
+void UserItem::UserItemRatingsBuilder(char *ratingsPath)
 {
     std::string line;
     std::ifstream ratingsFile;
@@ -25,40 +25,40 @@ void ItemUser::ItemUserRatingsBuilder(char *ratingsPath)
         token = strtok(NULL, ",ui");
         int rating = atoi(token);
 
-        ItemUserRatings[item][user] = rating;
+        UserItemRatings[item][user] = rating;
 
         UserConsumedItems[user].push_back(item);
     }
 
-    calculateItemsAvgRating();
-    calculateGlobalItemsAvgRating();
+    calculateUsersAvgRating();
+    calculateGlobalUsersAvgRating();
 
     ratingsFile.close();
 }
 
-void ItemUser::calculateItemsAvgRating()
+void UserItem::calculateUsersAvgRating()
 {
-    for (auto &item : ItemUserRatings)
+    for (auto &user : UserItemRatings)
     {
         int sum = 0;
         int count = 0;
-        for (auto &user : item.second)
+        for (auto &item : user.second)
         {
-            sum += user.second;
+            sum += item.second;
             count++;
         }
-        ItemAvgRating[item.first] = double(sum) / count;
+        UserAvgRating[user.first] = double(sum) / count;
     }
 }
 
-void ItemUser::calculateGlobalItemsAvgRating()
+void UserItem::calculateGlobalUsersAvgRating()
 {
     double sum = 0;
     int count = 0;
-    for (auto &item : ItemAvgRating)
+    for (auto &user : UserAvgRating)
     {
-        sum += item.second;
+        sum += user.second;
         count++;
     }
-    GlobalItemsAvg = double(sum) / count;
+    GlobalUsersAvg = double(sum) / count;
 }

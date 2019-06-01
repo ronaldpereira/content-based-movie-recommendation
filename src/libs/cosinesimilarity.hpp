@@ -5,7 +5,7 @@
 #include <algorithm>
 #include <unordered_map>
 #include <unordered_map>
-#include "itemuser.hpp"
+#include "useritem.hpp"
 
 class CosineSimilarity
 {
@@ -14,7 +14,7 @@ private:
     std::unordered_map<int, std::unordered_map<int, double>> computedSimilarities;
 
 public:
-    std::unordered_map<int, double> calculateSimilarity(ItemUser *, int);
+    std::unordered_map<int, double> calculateSimilarity(UserItem *, int);
 };
 
 #endif
