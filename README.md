@@ -6,7 +6,14 @@ Content-based Movie Recommendation algorithm.
 
 Movie Recommendation task by using:
 
-TBD
+- Content-based Similarities
+- Collaborative Filtering rating previews
+- Matrix Mean Normalization
+- Adjusted Cosine Distance
+- k-Nearest Neighbors selection for computed similarities (default: k = 0 (disabled))
+- Item cold-start:
+  1. Uses item average rating as the <user, item> prediction
+  2. If the item average doesn't exists, uses global items average rating as the <user, item> prediction
   
 ## Evaluation Metric
   
