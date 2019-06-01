@@ -27,7 +27,7 @@ void ContentReader::ReadContent(std::string contentsPath)
         token = strtok(NULL, "");
         std::string content = token;
 
-        itemContents[item] = json::parse(content);
+        ItemContents[item] = json::parse(content);
     }
 
     contentsFile.close();
