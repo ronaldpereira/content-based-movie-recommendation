@@ -10,9 +10,9 @@ int main(int argc, char **argv)
     // K Nearest Neighbors selection
     // int kNearestNeighbors = 0;
 
+    ContentReader content;
     // ItemUser itemuser;
     // Prediction prediction;
-    ContentReader content;
 
     content.ReadContent(argv[1]);
 
