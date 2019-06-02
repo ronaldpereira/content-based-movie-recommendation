@@ -6,7 +6,6 @@
 #include <iomanip>
 #include <fstream>
 #include <cstring>
-#include <unordered_map>
 #include "useritem.hpp"
 #include "content.hpp"
 #include "rocchio.hpp"

@@ -4,7 +4,6 @@
 #include <fstream>
 #include <cstring>
 #include <unordered_map>
-#include <vector>
 
 class UserItem
 {
