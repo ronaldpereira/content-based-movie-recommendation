@@ -75,7 +75,7 @@ double Prediction::makePrediction(int targetUserID, int targetItemID, UserItem *
             predRating = 0;
     }
 
-    // If the target item doesn't have any content-based similarity with any other item, pick the target user average rating
+    // If the target item doesn't have any content-based similarity with the target user, pick the target user average rating
     if (predRating == 0)
         predRating = useritem->UserAvgRating[targetUserID];
 

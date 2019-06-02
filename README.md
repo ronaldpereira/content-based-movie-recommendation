@@ -8,7 +8,7 @@ Movie Recommendation task by using:
 
 - Content-based Similarities using Rocchio recommendations
   - Just uses Collaborative Filtering rating previews for Rocchio calculation
-- User cold-start:
+- If the target item doesn't have any content-based similarity with the target user:
   1. Uses target user average rating as the <user, item> prediction
   2. If the user average doesn't exists, use target item average rating as the <user, item> prediction
   3. If the user average nor the item average doesn't exists, uses global items average rating as the <user, item> prediction
