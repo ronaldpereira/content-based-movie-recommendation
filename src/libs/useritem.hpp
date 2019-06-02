@@ -10,13 +10,16 @@ class UserItem
 {
 private:
     void calculateUsersAvgRating();
-    void calculateGlobalUsersAvgRating();
+    void calculateItemsAvgRating();
+    void calculateGlobalItemsAvgRating();
 
 public:
     // Data
     std::unordered_map<int, std::unordered_map<int, int>> UserItemRatings;
+    std::unordered_map<int, std::unordered_map<int, int>> ItemUserRatings;
     std::unordered_map<int, double> UserAvgRating;
-    double GlobalUsersAvg;
+    std::unordered_map<int, double> ItemAvgRating;
+    double GlobalItemsAvg;
 
     // Methods
     void UserItemRatingsBuilder(char *);

@@ -75,15 +75,17 @@ double Prediction::makePrediction(int targetUserID, int targetItemID, UserItem *
             predRating = 0;
     }
 
-    // If the target item doesn't have any content-based similarity with any other item, pick the user average rating
-    else
-    {
+    // If the target item doesn't have any content-based similarity with any other item, pick the target user average rating
+    if (predRating == 0)
         predRating = useritem->UserAvgRating[targetUserID];
 
-        // If the user is a complete cold-start, uses the global users average
-        if (predRating == 0)
-            predRating = useritem->GlobalUsersAvg;
-    }
+    // If the target user doesn't consumed any items, uses the target item average rating
+    if (predRating == 0)
+        predRating = useritem->ItemAvgRating[targetItemID];
+
+    // If the user is a complete cold-start, uses the global items average rating
+    if (predRating == 0)
+        predRating = useritem->GlobalItemsAvg;
 
     return predRating;
 }

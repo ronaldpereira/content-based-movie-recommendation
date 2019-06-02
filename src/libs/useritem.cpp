@@ -26,10 +26,12 @@ void UserItem::UserItemRatingsBuilder(char *ratingsPath)
         int rating = atoi(token);
 
         UserItemRatings[user][item] = rating;
+        ItemUserRatings[item][user] = rating;
     }
 
     calculateUsersAvgRating();
-    calculateGlobalUsersAvgRating();
+    calculateItemsAvgRating();
+    calculateGlobalItemsAvgRating();
 
     ratingsFile.close();
 }
@@ -49,14 +51,29 @@ void UserItem::calculateUsersAvgRating()
     }
 }
 
-void UserItem::calculateGlobalUsersAvgRating()
+void UserItem::calculateItemsAvgRating()
+{
+    for (auto &item : ItemUserRatings)
+    {
+        int sum = 0;
+        int count = 0;
+        for (auto &user : item.second)
+        {
+            sum += user.second;
+            count++;
+        }
+        ItemAvgRating[item.first] = double(sum) / count;
+    }
+}
+
+void UserItem::calculateGlobalItemsAvgRating()
 {
     double sum = 0;
     int count = 0;
-    for (auto &user : UserAvgRating)
+    for (auto &Item : ItemAvgRating)
     {
-        sum += user.second;
+        sum += Item.second;
         count++;
     }
-    GlobalUsersAvg = double(sum) / count;
+    GlobalItemsAvg = double(sum) / count;
 }
