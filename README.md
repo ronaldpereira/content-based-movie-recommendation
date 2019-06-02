@@ -7,12 +7,11 @@ Content-based Movie Recommendation algorithm.
 Movie Recommendation task by using:
 
 - Content-based Similarities using Rocchio recommendations
-- Collaborative Filtering rating previews
-- Matrix Mean Normalization
-- Adjusted Cosine Distance
+  - Just uses Collaborative Filtering rating previews for Rocchio calculation
 - User cold-start:
-  1. Uses user average rating as the <user, item> prediction
-  2. If the user average doesn't exists, uses global users average rating as the <user, item> prediction
+  1. Uses target user average rating as the <user, item> prediction
+  2. If the user average doesn't exists, use target item average rating as the <user, item> prediction
+  3. If the user average nor the item average doesn't exists, uses global items average rating as the <user, item> prediction
   
 ## Evaluation Metric
   
