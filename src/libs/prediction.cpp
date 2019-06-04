@@ -63,27 +63,9 @@ double Prediction::makePrediction(int targetUserID, int targetItemID, UserItem *
     double normalizer = std::sqrt(squaredUserFeatures) * std::sqrt(squaredItemFeatures);
 
     if (normalizer != 0)
-        predRating = numerator * 10 / normalizer;
+        predRating = numerator * useritem->UserAvgRating[targetUserID] / normalizer;
 
-    if (predRating != 0)
-    {
-        // Exploding ratings corrections
-        if (predRating > 10)
-            predRating = 10;
-
-        else if (predRating < 0)
-            predRating = 0;
-    }
-
-    // If the target item doesn't have any content-based similarity with the target user, pick the target user average rating
-    if (predRating == 0)
-        predRating = useritem->UserAvgRating[targetUserID];
-
-    // If the target user doesn't consumed any items, uses the target item average rating
-    if (predRating == 0)
-        predRating = useritem->ItemAvgRating[targetItemID];
-
-    // If the user is a complete cold-start, uses the global items average rating
+    // If the user is a cold-start (doesn't consumed any items), uses the global items average rating
     if (predRating == 0)
         predRating = useritem->GlobalItemsAvg;
 
